@@ -1,9 +1,9 @@
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #24292e;">
 
 <div style="background: #f6f8fa; border-left: 5px solid #0366d6; padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;">
-<h2 style="margin: 0 0 10px 0; color: #0366d6; font-size: 22px; border: none; padding: 0;">1C:SRE-Suite: автоматизируем непрерывную интеграцию (CI) через GitHub Actions</h2>
+<h2 style="margin: 0 0 10px 0; color: #0366d6; font-size: 22px; border: none; padding: 0;">SRE-Suite-for-1C-platform: автоматизируем непрерывную интеграцию (CI) через GitHub Actions</h2>
 
-<p style="font-size: 15px; color: #444d56; margin: 0 0 8px 0; font-weight: 500;">Декларативный пайплайн в <strong>GitHub Actions</strong>, тонкости лицензирования в Docker (<strong>--net=host</strong>), изоляция <strong>RUN_ID</strong> и интеграция со сборочным конвейером <strong>1C:SRE-Suite</strong>.</p>
+<p style="font-size: 15px; color: #444d56; margin: 0 0 8px 0; font-weight: 500;">Декларативный пайплайн в <strong>GitHub Actions</strong>, тонкости лицензирования в Docker (<strong>--net=host</strong>), изоляция <strong>RUN_ID</strong> и интеграция со сборочным конвейером <strong>SRE-Suite-for-1C-platform</strong>.</p>
 
 <p style="font-size: 13px; color: #586069; margin: 0;"><strong>Часть 2 практического руководства: от первого коммита до детерминированного синтаксического гейта на headless-раннере Linux</strong></p>
 </div>
@@ -11,7 +11,7 @@
 <p>В первой части нашей публикации мы рассмотрели общую архитектуру SRE-пакета для платформы &laquo;1С:Предприятие&raquo; в операционной системе Linux. Мы заложили теоретический и практический фундамент: описали <strong>пятислойный сборочный скрипт защиты от ложного успеха</strong>, утилиту автоматической трансляции проектов EDT и <strong>превентивные механизмы ротации процессов</strong>.</p>
 
 <div style="background-color: #f1f8ff; border: 1px solid #c8e1ff; border-left: 4px solid #0366d6; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 16px 0; font-size: 14px; line-height: 1.6; color: #24292e;">
-<strong>Связь с первой частью цикла:</strong> Архитектурное наполнение SRE-пакета, разбор пяти рубежей обороны скрипта <code>1c-ci-linux-build-v4.sh</code> и методика мягкой ротации <code>rphost</code> опубликованы в вводном материале: <a href="https://infostart.ru/1c/articles/2779597/" rel="noopener noreferrer" style="color: #0366d6; font-weight: 600; text-decoration: underline;" target="_blank">1C:SRE-Suite: переводим управление инфраструктурой 1С на Linux в декларативный формат (Часть 1)</a>.
+<strong>Связь с первой частью цикла:</strong> Архитектурное наполнение SRE-пакета, разбор пяти рубежей обороны скрипта <code>1c-ci-linux-build-v4.sh</code> и методика мягкой ротации <code>rphost</code> опубликованы в вводном материале: <a href="https://infostart.ru/1c/articles/2779597/" rel="noopener noreferrer" style="color: #0366d6; font-weight: 600; text-decoration: underline;" target="_blank">SRE-Suite-for-1C-platform: переводим управление инфраструктурой 1С на Linux в декларативный формат (Часть 1)</a>.
 </div>
 
 <p>Однако декларативное описание инфраструктуры работает на полную мощность только тогда, когда оно встроено в <strong>автоматический цикл обратной связи</strong>. Любой коммит разработчика или аналитика должен автоматически проверяться на <strong>синтаксическую корректность до того, как изменения попадут в общую базу</strong>.</p>
@@ -101,7 +101,7 @@
     <span style="color: #718096; font-weight: normal; font-size: 9pt;">Workflow</span>
   </div>
   <div style="overflow-x: auto; padding: 12px 16px; background-color: #f4f6f9;">
-    <pre style="margin: 0; font-family: Consolas, 'JetBrains Mono', monospace; font-size: 10.5pt; line-height: 1.5; color: #0a2540; background: transparent; border: none; padding: 0;"><span style="display: inline-block; width: 24px; text-align: right; padding-right: 10px; margin-right: 10px; color: #8c959f; border-right: 1px solid #d0d7de; user-select: none; -webkit-user-select: none;"> 1</span>name: 1C:SRE-Suite CI
+    <pre style="margin: 0; font-family: Consolas, 'JetBrains Mono', monospace; font-size: 10.5pt; line-height: 1.5; color: #0a2540; background: transparent; border: none; padding: 0;"><span style="display: inline-block; width: 24px; text-align: right; padding-right: 10px; margin-right: 10px; color: #8c959f; border-right: 1px solid #d0d7de; user-select: none; -webkit-user-select: none;"> 1</span>name: SRE-Suite-for-1C-platform CI
 <span style="display: inline-block; width: 24px; text-align: right; padding-right: 10px; margin-right: 10px; color: #8c959f; border-right: 1px solid #d0d7de; user-select: none; -webkit-user-select: none;"> 2</span>
 <span style="display: inline-block; width: 24px; text-align: right; padding-right: 10px; margin-right: 10px; color: #8c959f; border-right: 1px solid #d0d7de; user-select: none; -webkit-user-select: none;"> 3</span>on:
 <span style="display: inline-block; width: 24px; text-align: right; padding-right: 10px; margin-right: 10px; color: #8c959f; border-right: 1px solid #d0d7de; user-select: none; -webkit-user-select: none;"> 4</span>  push:
@@ -156,7 +156,7 @@
 		<tr style="background-color: #f6f8fa;">
 			<th style="border: 1px solid #dcdfe6; padding: 10px 12px; width: 25%; text-align: left; color: #1f2328;">Инженерный вызов</th>
 			<th style="border: 1px solid #dcdfe6; padding: 10px 12px; width: 35%; text-align: left; color: #1f2328;">Уязвимость в типовом Docker</th>
-			<th style="border: 1px solid #dcdfe6; padding: 10px 12px; width: 40%; text-align: left; color: #1f2328;">Решение контура 1C:SRE-Suite</th>
+			<th style="border: 1px solid #dcdfe6; padding: 10px 12px; width: 40%; text-align: left; color: #1f2328;">Решение контура SRE-Suite-for-1C-platform</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -197,7 +197,7 @@
 
 <p>Наш конфигурационный файл GitHub Actions представляет собой <strong>готовое промышленное решение</strong>, которое легко масштабировать под любые другие платформы автоматизации: <strong>GitLab CI, TeamCity или Jenkins</strong>.</p>
 
-<p>Мы продолжаем активную разработку <strong>1C:SRE-Suite</strong> на GitHub и приглашаем инженеров принять участие в формировании открытых отраслевых стандартов эксплуатации 1С.</p>
+<p>Мы продолжаем активную разработку <strong>SRE-Suite-for-1C-platform</strong> на GitHub и приглашаем инженеров принять участие в формировании открытых отраслевых стандартов эксплуатации 1С.</p>
 
 <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px 20px; margin: 16px 0;">
 <strong style="display: block; margin-bottom: 10px; color: #1b1f23; font-size: 14px;">Приоритетные задачи в рамках CI/CD-модулей прямо сейчас:</strong>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# 1C:SRE-Suite — Production Health Check & Diagnostic Tool (v1.3)
+# SRE-Suite-for-1C-platform — Production Health Check & Diagnostic Tool (v1.3)
 # Subsystem: Linux Kernel ↔ PostgreSQL/Patroni ↔ 1C:Enterprise Cluster
 # License: MIT (NickScherbakov/1c-sre-suite)
 # ==============================================================================
@@ -27,7 +27,7 @@ for arg in "$@"; do
             GENERATE_FIX=true
             ;;
         --version|-v)
-            echo "1C:SRE-Suite Health Check v${VERSION}"
+            echo "SRE-Suite-for-1C-platform Health Check v${VERSION}"
             exit 0
             ;;
         --help|-h)
@@ -47,7 +47,7 @@ if [[ "$GENERATE_FIX" == true ]]; then
     cat << 'EOF' > "$FIX_FILE"
 #!/usr/bin/env bash
 # ==============================================================================
-# 1C:SRE-Suite — Auto-Remediation Script
+# SRE-Suite-for-1C-platform — Auto-Remediation Script
 # Generated automatically by sre-1c-pg-healthcheck.sh
 # ==============================================================================
 set -euo pipefail
@@ -94,7 +94,7 @@ add_fix_command() {
 
 header() {
     echo -e "${BOLD}${BLUE}================================================================================${NC}"
-    echo -e "${BOLD}${CYAN} 1C:SRE-Suite — System & Database Health Check (v${VERSION})${NC}"
+    echo -e "${BOLD}${CYAN} SRE-Suite-for-1C-platform — System & Database Health Check (v${VERSION})${NC}"
     echo -e " Узел: ${BOLD}$(hostname)${NC} | Ядро: $(uname -r) | Время: $(date '+%Y-%m-%d %H:%M:%S')"
     echo -e "${BOLD}${BLUE}================================================================================${NC}"
     echo ""

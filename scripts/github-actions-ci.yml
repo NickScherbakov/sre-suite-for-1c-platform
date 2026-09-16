@@ -1,4 +1,4 @@
-name: 1C:SRE-Suite CI
+name: SRE-Suite-for-1C-platform CI
 
 on:
   push:
