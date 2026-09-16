@@ -41,7 +41,7 @@
   <g transform="translate(60, 50)">
     <!-- Серия -->
     <rect width="210" height="32" rx="6" fill="#1f6feb" fill-opacity="0.18" stroke="#388bfd" stroke-width="1.2" />
-    <text x="15" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#58a6ff" letter-spacing="1">1C:SRE-SUITE • ЧАСТЬ 2</text>
+    <text x="15" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#58a6ff" letter-spacing="1">SRE-Suite-for-1C-platform • ЧАСТЬ 2</text>
 
     <!-- Раннер статус -->
     <g transform="translate(850, 0)">
