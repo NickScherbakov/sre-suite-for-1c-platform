@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# 1C:SRE-Suite — Production Health Check & Diagnostic Tool (v1.2)
+# SRE-Suite-for-1C-platform — Production Health Check & Diagnostic Tool (v1.2)
 # Subsystem: Linux Kernel ↔ PostgreSQL/Patroni ↔ 1C:Enterprise Cluster
 # License: MIT (NickScherbakov/1c-sre-suite)
 # ==============================================================================
@@ -24,7 +24,7 @@ if [[ "${1:-}" == "--generate-fix" ]]; then
     FIX_FILE="$(mktemp /tmp/sre-healthcheck-fix.XXXXXX.sh)"
     cat << 'EOF' > "$FIX_FILE"
 #!/usr/bin/env bash
-# 1C:SRE-Suite Auto-Remediation Script
+# SRE-Suite-for-1C-platform Auto-Remediation Script
 set -euo pipefail
 echo "[*] Applying kernel and system remediations..."
 EOF
@@ -68,7 +68,7 @@ add_fix_command() {
 
 header() {
     echo -e "${BOLD}${BLUE}================================================================================${NC}"
-    echo -e "${BOLD}${CYAN} 1C:SRE-Suite — System & Database Health Check (v1.2)${NC}"
+    echo -e "${BOLD}${CYAN} SRE-Suite-for-1C-platform — System & Database Health Check (v1.2)${NC}"
     echo -e " Host: ${BOLD}$(hostname)${NC} | Kernel: $(uname -r) | Date: $(date '+%Y-%m-%d %H:%M:%S')"
     echo -e "${BOLD}${BLUE}================================================================================${NC}"
     echo ""
